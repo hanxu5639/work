@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xa.dao.SeatDao">
+<cache type="org.mybatis.caches.ehcache.EhcacheCache" />
+  <resultMap id="mySeat" type="com.xa.bean.SeatBean">
+    <id column="seat_num" jdbcType="INTEGER" property="seatNum" />
+    <result column="hall_id" jdbcType="INTEGER" property="hallId" />
+    <result column="work_off" jdbcType="INTEGER" property="workOff" />
+    <association property="hb" javaType="com.xa.bean.HallBean" column="hall_id" select="com.xa.dao.HallDao.getOneHall"></association>
+  </resultMap>
+  
+  <select id="getBookedSeat" resultMap="mySeat">
+    select seat_num,hall_id,work_off from seat_tb where work_off = 0
+  </select>
+   <select id="getNoBookedSeat" resultMap="mySeat">
+    select seat_num,hall_id,work_off from seat_tb where work_off = 1
+  </select>
+  <select id="getOneSeat" resultMap="mySeat">
+    select seat_num,hall_id,work_off from seat_tb where seat_num = #{seatNum}
+  </select>
+  <update id="updateWorkOff">
+     update seat_tb set work_off = #{state} where seat_num = #{seatNum}
+  </update>
+</mapper>

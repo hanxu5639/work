@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xa.dao.HallDao">
+<cache type="org.mybatis.caches.ehcache.EhcacheCache" />
+  <resultMap id="myHall" type="com.xa.bean.HallBean">
+    <id column="hall_id" jdbcType="INTEGER" property="hallId" />
+    <result column="hall_name" jdbcType="VARCHAR" property="hallName" />
+    <result column="hall_seat" jdbcType="INTEGER" property="hallSeat" />
+  </resultMap>
+ 
+ <select id="getHallAll" resultMap="myHall">
+     select hall_id,hall_name,hall_seat from hall_tb
+ </select>
+ 
+ <select id="getOneHall" resultMap="myHall">
+     select hall_id,hall_name,hall_seat from hall_tb where hall_id = #{hallId}
+ </select>
+</mapper>

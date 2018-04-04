@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xa.dao.ShowDao">
+<cache type="org.mybatis.caches.ehcache.EhcacheCache" />
+  <resultMap id="myShow" type="com.xa.bean.ShowBean">
+    <id column="show_id" jdbcType="INTEGER" property="showId" />
+    <result column="hall_id" jdbcType="INTEGER" property="hallId" />
+    <result column="movie_id" jdbcType="INTEGER" property="movieId" />
+    <result column="show_time_start" jdbcType="TIME" property="showTimeStart" />
+    <result column="show_time_end" jdbcType="TIME" property="showTimeEnd" />
+    <association property="mb" javaType="com.xa.bean.MovieBean" column="movie_id" select="com.xa.dao.MovieDao.getOneMovie"></association>
+    <association property="hb" javaType="com.xa.bean.HallBean" column="hall_id" select="com.xa.dao.HallDao.getOneHall"></association>
+  </resultMap>
+  
+ 
+ <select id="getAllShow" resultMap="myShow">
+     select show_id,hall_id,movie_id,show_time_start,show_time_end from show_tb where show_time_start > NOW() 
+ </select>
+ 
+ <select id="getOneShow" resultMap="myShow">
+     select show_id,hall_id,movie_id,show_time_start,show_time_end from show_tb where show_id = #{showId}
+ </select>
+</mapper>
