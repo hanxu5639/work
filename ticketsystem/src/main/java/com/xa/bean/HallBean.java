@@ -13,7 +13,18 @@ public class HallBean implements Serializable{
 
     private Integer hallSeat;//放映厅共有座位
 
-    public Integer getHallId() {
+    public HallBean() {
+		super();
+	}
+
+	public HallBean(Integer hallId, String hallName, Integer hallSeat) {
+		super();
+		this.hallId = hallId;
+		this.hallName = hallName;
+		this.hallSeat = hallSeat;
+	}
+
+	public Integer getHallId() {
         return hallId;
     }
 

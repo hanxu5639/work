@@ -25,6 +25,23 @@ public class SaleBean implements Serializable {
 
 	private ShowBean shb;// 放映
 
+	public SaleBean() {
+		super();
+	}
+
+	public SaleBean(Integer saleId, Integer userId, Integer seatNum, Integer showId, String saleTime, UserBean ub,
+			SeatBean seb, ShowBean shb) {
+		super();
+		this.saleId = saleId;
+		this.userId = userId;
+		this.seatNum = seatNum;
+		this.showId = showId;
+		this.saleTime = saleTime;
+		this.ub = ub;
+		this.seb = seb;
+		this.shb = shb;
+	}
+
 	public Integer getSaleId() {
 		return saleId;
 	}

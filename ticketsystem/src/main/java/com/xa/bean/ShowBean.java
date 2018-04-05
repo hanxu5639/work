@@ -24,8 +24,27 @@ public class ShowBean implements Serializable{
     private HallBean hb;//放映厅类
     
 
+    
+    
+    
 
-    public Integer getShowId() {
+    public ShowBean() {
+		super();
+	}
+
+	public ShowBean(Integer showId, Integer hallId, Integer movieId, String showTimeStart, String showTimeEnd,
+			MovieBean mb, HallBean hb) {
+		super();
+		this.showId = showId;
+		this.hallId = hallId;
+		this.movieId = movieId;
+		this.showTimeStart = showTimeStart;
+		this.showTimeEnd = showTimeEnd;
+		this.mb = mb;
+		this.hb = hb;
+	}
+
+	public Integer getShowId() {
         return showId;
     }
 

@@ -11,7 +11,17 @@ public class MovieBean implements Serializable{
 
     private String movieName;//电影名字
 
-    public Integer getMovieId() {
+    public MovieBean() {
+		super();
+	}
+
+	public MovieBean(Integer movieId, String movieName) {
+		super();
+		this.movieId = movieId;
+		this.movieName = movieName;
+	}
+
+	public Integer getMovieId() {
         return movieId;
     }
 

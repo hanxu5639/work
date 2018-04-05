@@ -19,7 +19,22 @@ public class SeatBean implements Serializable{
     
     private HallBean hb;//放映厅
 
-    public Integer getSeatNum() {
+    
+    
+    
+    public SeatBean() {
+		super();
+	}
+
+	public SeatBean(Integer seatNum, Integer hallId, Integer workOff, HallBean hb) {
+		super();
+		this.seatNum = seatNum;
+		this.hallId = hallId;
+		this.workOff = workOff;
+		this.hb = hb;
+	}
+
+	public Integer getSeatNum() {
         return seatNum;
     }
 

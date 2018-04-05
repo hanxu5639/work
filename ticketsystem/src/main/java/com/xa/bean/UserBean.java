@@ -16,8 +16,49 @@ public class UserBean implements Serializable{
 
     private String userName;//用户名
     
+    private String sex;//性別
     
-    public Integer getUserId() {
+    private int age;//年齡
+    
+    
+    
+    
+    
+    public UserBean() {
+		super();
+	}
+
+
+
+	public UserBean(Integer userId, String loginname, String password, String userName, String sex, int age) {
+		super();
+		this.userId = userId;
+		this.loginname = loginname;
+		this.password = password;
+		this.userName = userName;
+		this.sex = sex;
+		this.age = age;
+	}
+    
+    
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public Integer getUserId() {
         return userId;
     }
 

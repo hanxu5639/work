@@ -7,14 +7,16 @@
     <result column="loginname" jdbcType="VARCHAR" property="loginname" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="sex" jdbcType="VARCHAR" property="sex"/>
+    <result column="age" jdbcType="INTEGER" property="age"/>
   </resultMap>
   
   <select id="login" resultMap="myUser">
-   select user_id,loginname,password,user_name from user_tb where loginname = #{ln} and password = #{ps}
+   select user_id,loginname,password,user_name,sex,age from user_tb where loginname = #{ln} and password = #{ps}
   </select>
   
   <select id="getOneUser" resultMap="myUser">
-   select user_id,loginname,password,user_name from user_tb where user_id = #{userId} 
+   select user_id,loginname,password,user_name,sex,age from user_tb where user_id = #{userId} 
   </select>
   
 </mapper>

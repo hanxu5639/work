@@ -102,6 +102,12 @@
 			document.getElementById("ps").value = GetCookie("password");
 		}
 	}
+	
+	function regist(){
+		window.location.href="reg"; 
+	}
+	
+	
 </script>
 </head>
 
@@ -154,6 +160,8 @@
 							<input type="button" name="" id=""
 								value='登录'
 								class="btn btn-primary " onclick="checkUser()" />
+								<input type="button" name="" id=""
+								class="btn btn-primary " value='注冊' onclick="regist()" />
 							&nbsp;&nbsp;&nbsp;&nbsp; <label><input type="checkbox"
 								class="checkbox-inline" name="remember" value="14" id="remember" />
 							记住密码</label>
